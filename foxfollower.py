@@ -1,5 +1,5 @@
 from os import name , system , path , stat
-from requests import session 
+from requests import session , get
 from json import dump , load
 from random import choice 
 Session = session()
