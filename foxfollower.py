@@ -90,15 +90,8 @@ def Subsidiary():
         Session.headers = load(file)
 
 def FindeNumId(username):
-    
-    sesnumid.headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36"}
-    data = sesnumid.get("https://commentpicker.com/instagram-user-id.php")
-    sesnumid.headers.update({"Referer": "https://commentpicker.com/instagram-user-id.php"})
-    data = sesnumid.get('https://commentpicker.com/actions/token.php?id=secret')
-    # print(data.text)
-    data = sesnumid.get(f"https://commentpicker.com/actions/instagram-id-action.php?username={username}&token={data.text}")
-    # print(data.text)
-    id = data.json()['id']
+    data = get(f"https://storiesig.info/api/ig/userInfoByUsername/{username}" , headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36"}).json()
+    id = data['result']['user']['pk_id']
     return id
 
 def Sender():
